@@ -1,0 +1,29 @@
+# Environment
+.env
+venv/
+.venv/
+
+# ChromaDB
+chroma_db/
+
+# HuggingFace model cache (downloaded on first run, ~80MB)
+.cache/
+huggingface/
+sentence_transformers/
+
+# Generated outputs
+outputs/*.pdf
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
