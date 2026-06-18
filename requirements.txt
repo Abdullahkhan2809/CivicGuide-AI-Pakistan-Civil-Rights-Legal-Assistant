@@ -1,0 +1,12 @@
+﻿streamlit>=1.35,<2.0
+python-dotenv>=1.0,<2.0
+groq>=0.9,<1.0
+fpdf2>=2.8,<3.0
+pypdf>=4.2,<7.0
+
+# Optional semantic/vector retrieval stack used by rag.ingest and rag.retriever.
+# The app still works with local JSON/BM25 retrieval if these are unavailable.
+langchain-chroma>=0.1,<2.0
+langchain-huggingface>=0.1,<2.0
+sentence-transformers>=3.0,<6.0
+chromadb>=0.5,<2.0
