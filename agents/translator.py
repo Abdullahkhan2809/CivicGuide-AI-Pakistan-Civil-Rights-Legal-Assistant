@@ -2,15 +2,17 @@ from __future__ import annotations
 
 import os
 import re
+from pathlib import Path
 
+from dotenv import load_dotenv
 from groq import Groq
 
 
 URDU_RE = re.compile(r"[\u0600-\u06ff]")
 URDU_REQUEST_RE = re.compile(
     r"\b(urdu|roman urdu|translate|translation|tarjuma|tarjumah|urdo)\b|"
-    r"[\u0627][\u0631][\u062f][\u0648]|"
-    r"[\u062a][\u0631][\u062c][\u0645][\u06c1]",
+    r"\u0627\u0631\u062f\u0648|"
+    r"\u062a\u0631\u062c\u0645\u06c1",
     re.IGNORECASE,
 )
 ROMAN_URDU_RE = re.compile(
@@ -28,6 +30,9 @@ TRANSLATION_SYSTEM_PROMPT = (
     "Do not add new legal facts or advice. Return only the Urdu translation."
 )
 MAX_TRANSLATION_CHARS = 2800
+URDU_WORD = "\u0627\u0631\u062f\u0648"
+TRANSLATION_WORD = "\u062a\u0631\u062c\u0645\u06c1"
+ROOT_DIR = Path(__file__).resolve().parents[1]
 
 
 def needs_urdu_translation(prompt: str) -> bool:
@@ -40,7 +45,7 @@ def needs_urdu_translation(prompt: str) -> bool:
 
 
 def is_translation_only_request(prompt: str) -> bool:
-    return bool(TRANSLATION_ONLY_RE.search(prompt) or prompt.strip() in {"اردو", "ترجمہ"})
+    return bool(TRANSLATION_ONLY_RE.search(prompt) or prompt.strip() in {URDU_WORD, TRANSLATION_WORD})
 
 
 def remove_existing_urdu_translation(answer: str) -> str:
@@ -86,9 +91,12 @@ def _translate_chunk(client: Groq, text: str) -> str:
 
 
 def translate_to_urdu(text: str) -> str:
+    load_dotenv(ROOT_DIR / ".env")
     api_key = os.getenv("GROQ_API_KEY")
-    if not api_key or not text.strip():
+    if not api_key:
         raise RuntimeError("GROQ_API_KEY is missing")
+    if not text.strip():
+        raise RuntimeError("answer text is empty")
 
     client = Groq(api_key=api_key)
     translations = [_translate_chunk(client, chunk) for chunk in split_translation_chunks(text)]
@@ -108,7 +116,7 @@ def append_urdu_translation(answer: str, prompt: str) -> str:
         return (
             f"{answer}\n\n"
             "**Urdu Translation:**\n"
-            f"Urdu translation could not be generated right now ({exc.__class__.__name__})."
+            f"Urdu translation could not be generated right now ({exc.__class__.__name__}: {exc})."
         )
 
     return f"{answer}\n\n**Urdu Translation:**\n{translation}"
