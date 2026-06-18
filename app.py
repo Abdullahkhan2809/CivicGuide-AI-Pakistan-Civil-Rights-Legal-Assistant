@@ -73,47 +73,11 @@ def inject_css() -> None:
             overflow: hidden;
         }
         .mini-logo::before {
-            content: "";
-            position: absolute;
-            width: 2px;
-            height: 13px;
-            top: 5px;
-            left: 11px;
-            border-radius: 99px;
-            background: #ffffff;
-            box-shadow:
-                -7px 5px 0 -0.5px rgba(255,255,255,0.95),
-                7px 5px 0 -0.5px rgba(255,255,255,0.95),
-                0 13px 0 2px rgba(255,255,255,0.95);
-        }
-        .mini-logo::after {
-            content: "";
-            position: absolute;
-            width: 16px;
-            height: 8px;
-            top: 8px;
-            left: 4px;
-            border-top: 2px solid rgba(255,255,255,0.95);
-            border-left: 2px solid rgba(255,255,255,0.95);
-            border-right: 2px solid rgba(255,255,255,0.95);
-            border-radius: 0 0 8px 8px;
-            transform: rotate(180deg);
-            transform-origin: center;
-        }
-        .mini-logo .scale-base {
-            display: none;
-        }
-        .mini-logo {
-            background:
-                radial-gradient(circle at 5px 17px, #ffffff 0 3px, transparent 3.3px),
-                radial-gradient(circle at 19px 17px, #ffffff 0 3px, transparent 3.3px),
-                linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0) 42%),
-                linear-gradient(135deg, #4f8df7 0%, #11b7a4 100%);
-        }
-        .mini-logo::after {
-            background: transparent;
-            bottom: auto;
-            height: 2px;
+            content: "⚖";
+            color: #ffffff;
+            font-size: 0.9rem;
+            line-height: 1;
+            transform: translateY(-1px);
         }
         .top-actions {
             display: flex;
@@ -258,35 +222,21 @@ def inject_css() -> None:
             overflow: hidden;
         }
         .logo::before {
-            content: "";
-            position: absolute;
-            width: 4px;
-            height: 34px;
-            top: 12px;
-            left: 30px;
-            border-radius: 99px;
-            background: #ffffff;
-            box-shadow:
-                -18px 13px 0 -1px rgba(255,255,255,0.95),
-                18px 13px 0 -1px rgba(255,255,255,0.95),
-                0 34px 0 5px rgba(255,255,255,0.95);
+            content: "⚖";
+            color: #ffffff;
+            font-size: 2rem;
+            line-height: 1;
+            transform: translateY(-2px);
         }
         .logo::after {
             content: "";
             position: absolute;
-            width: 42px;
-            height: 20px;
-            top: 22px;
-            left: 11px;
-            border-top: 4px solid rgba(255,255,255,0.95);
-            border-left: 4px solid rgba(255,255,255,0.95);
-            border-right: 4px solid rgba(255,255,255,0.95);
-            border-radius: 0 0 18px 18px;
-            background:
-                radial-gradient(circle at 2px 15px, #ffffff 0 7px, transparent 7.3px),
-                radial-gradient(circle at 40px 15px, #ffffff 0 7px, transparent 7.3px);
-            transform: rotate(180deg);
-            transform-origin: center;
+            left: 18px;
+            right: 18px;
+            bottom: 13px;
+            height: 3px;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, 0.78);
         }
         .subtitle { color: #8b94ad; font-weight: 600; }
         .status {
@@ -830,10 +780,10 @@ def main() -> None:
     if st.session_state.current_query:
         with st.chat_message("user"):
             st.write(st.session_state.current_query)
-        with st.chat_message("assistant", avatar="CG"):
+        with st.chat_message("assistant", avatar="⚖"):
             st.write(st.session_state.last_answer)
     else:
-        with st.chat_message("assistant", avatar="CG"):
+        with st.chat_message("assistant", avatar="⚖"):
             st.write("Tell me your issue, for example: `khulla procedure`, `landlord not returning deposit`, or `company registration`.")
     render_suggestion_buttons()
     st.markdown("</div>", unsafe_allow_html=True)
