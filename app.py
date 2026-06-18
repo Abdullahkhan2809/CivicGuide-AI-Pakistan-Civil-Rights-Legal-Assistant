@@ -73,22 +73,47 @@ def inject_css() -> None:
             overflow: hidden;
         }
         .mini-logo::before {
-            content: "CG";
-            color: #ffffff;
-            font-size: 0.56rem;
-            font-weight: 900;
-            letter-spacing: 0;
-            line-height: 1;
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 13px;
+            top: 5px;
+            left: 11px;
+            border-radius: 99px;
+            background: #ffffff;
+            box-shadow:
+                -7px 5px 0 -0.5px rgba(255,255,255,0.95),
+                7px 5px 0 -0.5px rgba(255,255,255,0.95),
+                0 13px 0 2px rgba(255,255,255,0.95);
         }
         .mini-logo::after {
             content: "";
             position: absolute;
-            left: 6px;
-            right: 6px;
-            bottom: 5px;
+            width: 16px;
+            height: 8px;
+            top: 8px;
+            left: 4px;
+            border-top: 2px solid rgba(255,255,255,0.95);
+            border-left: 2px solid rgba(255,255,255,0.95);
+            border-right: 2px solid rgba(255,255,255,0.95);
+            border-radius: 0 0 8px 8px;
+            transform: rotate(180deg);
+            transform-origin: center;
+        }
+        .mini-logo .scale-base {
+            display: none;
+        }
+        .mini-logo {
+            background:
+                radial-gradient(circle at 5px 17px, #ffffff 0 3px, transparent 3.3px),
+                radial-gradient(circle at 19px 17px, #ffffff 0 3px, transparent 3.3px),
+                linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0) 42%),
+                linear-gradient(135deg, #4f8df7 0%, #11b7a4 100%);
+        }
+        .mini-logo::after {
+            background: transparent;
+            bottom: auto;
             height: 2px;
-            border-radius: 99px;
-            background: rgba(255, 255, 255, 0.82);
         }
         .top-actions {
             display: flex;
@@ -233,22 +258,35 @@ def inject_css() -> None:
             overflow: hidden;
         }
         .logo::before {
-            content: "CG";
-            color: #ffffff;
-            font-size: 1.15rem;
-            font-weight: 900;
-            letter-spacing: 0;
-            line-height: 1;
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 34px;
+            top: 12px;
+            left: 30px;
+            border-radius: 99px;
+            background: #ffffff;
+            box-shadow:
+                -18px 13px 0 -1px rgba(255,255,255,0.95),
+                18px 13px 0 -1px rgba(255,255,255,0.95),
+                0 34px 0 5px rgba(255,255,255,0.95);
         }
         .logo::after {
             content: "";
             position: absolute;
-            left: 16px;
-            right: 16px;
-            bottom: 14px;
-            height: 4px;
-            border-radius: 99px;
-            background: rgba(255, 255, 255, 0.82);
+            width: 42px;
+            height: 20px;
+            top: 22px;
+            left: 11px;
+            border-top: 4px solid rgba(255,255,255,0.95);
+            border-left: 4px solid rgba(255,255,255,0.95);
+            border-right: 4px solid rgba(255,255,255,0.95);
+            border-radius: 0 0 18px 18px;
+            background:
+                radial-gradient(circle at 2px 15px, #ffffff 0 7px, transparent 7.3px),
+                radial-gradient(circle at 40px 15px, #ffffff 0 7px, transparent 7.3px);
+            transform: rotate(180deg);
+            transform-origin: center;
         }
         .subtitle { color: #8b94ad; font-weight: 600; }
         .status {
