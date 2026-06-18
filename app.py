@@ -14,6 +14,7 @@ from fpdf import FPDF
 from fpdf.enums import XPos, YPos
 from groq import Groq
 
+from agents.translator import append_urdu_translation
 from config import APP_NAME, APP_SUBTITLE, DISCLAIMER, LEGAL_DOMAINS
 from memory.memory import init_session
 from rag.prompts import SYSTEM_PROMPT, build_answer_prompt
@@ -565,7 +566,8 @@ def statute_answer(prompt: str, domain: str) -> str:
 
 def answer_user(prompt: str, procedure: Procedure | None) -> str:
     if not procedure:
-        return statute_answer(prompt, st.session_state.get("domain", detect_domain(prompt)))
+        answer = statute_answer(prompt, st.session_state.get("domain", detect_domain(prompt)))
+        return append_urdu_translation(answer, prompt)
 
     try:
         answer = groq_answer(prompt, procedure)
@@ -574,7 +576,7 @@ def answer_user(prompt: str, procedure: Procedure | None) -> str:
         answer = None
 
     if answer:
-        return answer
+        return append_urdu_translation(answer, prompt)
 
     fallback = answer_procedure_question(procedure, prompt)
     domain = st.session_state.get("domain", detect_domain(prompt))
@@ -585,8 +587,8 @@ def answer_user(prompt: str, procedure: Procedure | None) -> str:
     )
     refs = chunk_references(chunks)
     if refs:
-        return f"{fallback}\n\nRelevant extracted law references:\n{refs}"
-    return fallback
+        fallback = f"{fallback}\n\nRelevant extracted law references:\n{refs}"
+    return append_urdu_translation(fallback, prompt)
 
 
 def sanitize_pdf_text(text: str) -> str:
