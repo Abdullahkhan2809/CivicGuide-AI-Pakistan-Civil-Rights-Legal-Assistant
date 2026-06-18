@@ -35,6 +35,28 @@ TRANSLATION_WORD = "\u062a\u0631\u062c\u0645\u06c1"
 ROOT_DIR = Path(__file__).resolve().parents[1]
 
 
+def get_groq_api_key() -> str:
+    load_dotenv(ROOT_DIR / ".env", override=True)
+
+    api_key = os.getenv("GROQ_API_KEY", "").strip()
+    if api_key:
+        return api_key
+
+    try:
+        import streamlit as st
+
+        secret_key = str(st.secrets.get("GROQ_API_KEY", "")).strip()
+        if secret_key:
+            os.environ["GROQ_API_KEY"] = secret_key
+            return secret_key
+    except Exception:
+        pass
+
+    raise RuntimeError(
+        "GROQ_API_KEY is missing. Add it to .env locally or Streamlit secrets in deployment."
+    )
+
+
 def needs_urdu_translation(prompt: str) -> bool:
     """Return true when the user explicitly asks for Urdu or appears to write in Urdu/Roman Urdu."""
     return bool(
@@ -91,10 +113,7 @@ def _translate_chunk(client: Groq, text: str) -> str:
 
 
 def translate_to_urdu(text: str) -> str:
-    load_dotenv(ROOT_DIR / ".env")
-    api_key = os.getenv("GROQ_API_KEY")
-    if not api_key:
-        raise RuntimeError("GROQ_API_KEY is missing")
+    api_key = get_groq_api_key()
     if not text.strip():
         raise RuntimeError("answer text is empty")
 

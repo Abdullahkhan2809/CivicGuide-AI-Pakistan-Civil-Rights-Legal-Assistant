@@ -16,6 +16,7 @@ from groq import Groq
 
 from agents.translator import (
     append_urdu_translation,
+    get_groq_api_key,
     is_translation_only_request,
     remove_existing_urdu_translation,
     translate_to_urdu,
@@ -414,8 +415,9 @@ def build_statute_procedure(prompt: str, domain: str, chunks: list[RetrievedChun
 
 
 def groq_answer(prompt: str, procedure: Procedure) -> str | None:
-    api_key = os.getenv("GROQ_API_KEY")
-    if not api_key:
+    try:
+        api_key = get_groq_api_key()
+    except RuntimeError:
         st.session_state.llm_status = "Groq key missing"
         return None
 
@@ -481,8 +483,9 @@ def expand_legal_query(prompt: str, domain: str) -> str:
 
 
 def groq_statute_answer(prompt: str, chunks: list[RetrievedChunk]) -> str | None:
-    api_key = os.getenv("GROQ_API_KEY")
-    if not api_key:
+    try:
+        api_key = get_groq_api_key()
+    except RuntimeError:
         return None
 
     client = Groq(api_key=api_key)
