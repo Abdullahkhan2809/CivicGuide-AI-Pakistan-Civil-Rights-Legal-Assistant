@@ -5,6 +5,7 @@ venv/
 
 # ChromaDB
 chroma_db/
+vector_db/chroma_db/
 
 # HuggingFace model cache (downloaded on first run, ~80MB)
 .cache/

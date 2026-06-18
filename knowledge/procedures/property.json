@@ -1,0 +1,164 @@
+{
+  "category": "property",
+  "procedures": {
+    "security_deposit_recovery": {
+      "title": "Recovering Security Deposit from Landlord",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Send a written notice to the landlord demanding return of deposit",
+          "details": "Send via registered post or courier with tracking. Keep a copy of the notice and delivery proof.",
+          "timeline": "Allow 15 days for response"
+        },
+        {
+          "step": 2,
+          "action": "Prepare a rent dispute application",
+          "details": "Attach the rent agreement, deposit receipt, CNIC copy, proof of vacating the property, and the written notice.",
+          "timeline": "1-2 days"
+        },
+        {
+          "step": 3,
+          "action": "File the complaint with the Rent Controller",
+          "details": "Visit the Rent Controller office in your district and submit the application with supporting documents.",
+          "timeline": "Filing usually takes 1-2 working days"
+        }
+      ],
+      "required_documents": [
+        {
+          "name_en": "Copy of Rent Agreement",
+          "name_ur": "\u06a9\u0631\u0627\u06cc\u06c1 \u0646\u0627\u0645\u06c1 \u06a9\u06cc \u06a9\u0627\u067e\u06cc",
+          "source": "Your personal records"
+        },
+        {
+          "name_en": "Security Deposit Receipt",
+          "name_ur": "\u0633\u06cc\u06a9\u06cc\u0648\u0631\u0679\u06cc \u0688\u067e\u0627\u0632\u0679 \u06a9\u06cc \u0631\u0633\u06cc\u062f",
+          "source": "Issued by landlord at time of payment"
+        },
+        {
+          "name_en": "CNIC Copy",
+          "name_ur": "\u0634\u0646\u0627\u062e\u062a\u06cc \u06a9\u0627\u0631\u0688 \u06a9\u06cc \u06a9\u0627\u067e\u06cc",
+          "source": "NADRA"
+        },
+        {
+          "name_en": "Written Notice to Landlord (with proof of delivery)",
+          "name_ur": "\u0645\u0627\u0644\u06a9 \u0645\u06a9\u0627\u0646 \u06a9\u0648 \u062a\u062d\u0631\u06cc\u0631\u06cc \u0646\u0648\u0679\u0633",
+          "source": "Drafted by you or your lawyer"
+        }
+      ],
+      "office": {
+        "name": "Rent Controller Office",
+        "jurisdiction": "District-level",
+        "note": "Located in or near the District Courts complex of your city"
+      },
+      "estimated_cost": "PKR 500-2000 (court fee + stamp paper)",
+      "estimated_timeline": "1-6 months depending on landlord's cooperation",
+      "relevant_law": "West Pakistan Urban Rent Restriction Ordinance, 1959; Islamabad Rent Restriction Ordinance, 2001; Karachi Rent Restriction Act, 1953"
+    },
+    "tenant_eviction_response": {
+      "title": "Responding to an Eviction or Possession Notice",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Read the notice and record the deadline",
+          "details": "Check who issued the notice, the reason for eviction, rent arrears claimed, and any hearing date.",
+          "timeline": "Same day"
+        },
+        {
+          "step": 2,
+          "action": "Collect tenancy and payment evidence",
+          "details": "Gather the rent agreement, rent receipts, bank transfers, utility bills, and any messages with the landlord.",
+          "timeline": "1-3 days"
+        },
+        {
+          "step": 3,
+          "action": "File a reply before the Rent Controller or relevant court",
+          "details": "Submit your written reply before the deadline and attend all hearings with original documents.",
+          "timeline": "Before the date in the notice"
+        }
+      ],
+      "required_documents": [
+        {
+          "name_en": "Eviction Notice",
+          "name_ur": "\u0628\u06d2 \u062f\u062e\u0644\u06cc \u06a9\u0627 \u0646\u0648\u0679\u0633",
+          "source": "Landlord, court, or rent office"
+        },
+        {
+          "name_en": "Rent Agreement",
+          "name_ur": "\u06a9\u0631\u0627\u06cc\u06c1 \u0646\u0627\u0645\u06c1",
+          "source": "Your personal records"
+        },
+        {
+          "name_en": "Rent Payment Receipts",
+          "name_ur": "\u06a9\u0631\u0627\u06cc\u06c1 \u0627\u062f\u0627\u0626\u06cc\u06af\u06cc \u06a9\u06cc \u0631\u0633\u06cc\u062f\u06cc\u06ba",
+          "source": "Receipts, bank, or mobile wallet record"
+        },
+        {
+          "name_en": "CNIC Copy",
+          "name_ur": "\u0634\u0646\u0627\u062e\u062a\u06cc \u06a9\u0627\u0631\u0688 \u06a9\u06cc \u06a9\u0627\u067e\u06cc",
+          "source": "NADRA"
+        }
+      ],
+      "office": {
+        "name": "Rent Controller Office",
+        "jurisdiction": "District-level",
+        "note": "Attend the forum named in the notice or the district rent office"
+      },
+      "estimated_cost": "PKR 500-3000 for basic filing and copying",
+      "estimated_timeline": "Several weeks to several months",
+      "relevant_law": "Provincial rent restriction laws and the applicable rent ordinance for your city"
+    },
+    "property_registration": {
+      "title": "Registering a Property Sale or Transfer",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Prepare the sale deed or transfer deed",
+          "details": "Make sure names, CNIC numbers, property description, price, and boundaries match the title documents.",
+          "timeline": "1-3 days"
+        },
+        {
+          "step": 2,
+          "action": "Pay stamp duty and applicable government charges",
+          "details": "Use the valuation table and local revenue office guidance to calculate duty and taxes.",
+          "timeline": "1-2 days"
+        },
+        {
+          "step": 3,
+          "action": "Register the document with the Sub-Registrar",
+          "details": "Both parties or authorized representatives appear with witnesses, CNICs, photographs, and original documents.",
+          "timeline": "Same day to 1 week"
+        }
+      ],
+      "required_documents": [
+        {
+          "name_en": "Original Title Documents",
+          "name_ur": "\u0627\u0635\u0644 \u0645\u0644\u06a9\u06cc\u062a\u06cc \u06a9\u0627\u063a\u0630\u0627\u062a",
+          "source": "Seller or revenue record"
+        },
+        {
+          "name_en": "CNIC Copies of Buyer and Seller",
+          "name_ur": "\u062e\u0631\u06cc\u062f\u0627\u0631 \u0627\u0648\u0631 \u0641\u0631\u0648\u062e\u062a \u06a9\u0646\u0646\u062f\u06c1 \u06a9\u06d2 \u0634\u0646\u0627\u062e\u062a\u06cc \u06a9\u0627\u0631\u0688",
+          "source": "NADRA"
+        },
+        {
+          "name_en": "Stamped Sale Deed",
+          "name_ur": "\u0627\u0634\u0679\u0627\u0645 \u0634\u062f\u06c1 \u0628\u06cc\u0639 \u0646\u0627\u0645\u06c1",
+          "source": "Deed writer or lawyer"
+        },
+        {
+          "name_en": "Tax and Fee Payment Challans",
+          "name_ur": "\u0679\u06cc\u06a9\u0633 \u0627\u0648\u0631 \u0641\u06cc\u0633 \u0686\u0627\u0644\u0627\u0646",
+          "source": "Bank or revenue office"
+        }
+      ],
+      "office": {
+        "name": "Sub-Registrar Office",
+        "jurisdiction": "Property location",
+        "note": "Usually linked with the local revenue or district registration office"
+      },
+      "estimated_cost": "Depends on property value, stamp duty, registration fee, and local taxes",
+      "estimated_timeline": "1 day to several weeks depending on document readiness",
+      "relevant_law": "Registration Act, 1908; Stamp Act, 1899; Transfer of Property Act, 1882"
+    }
+  }
+}
