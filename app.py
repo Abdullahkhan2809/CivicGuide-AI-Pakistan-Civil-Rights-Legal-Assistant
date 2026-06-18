@@ -14,7 +14,12 @@ from fpdf import FPDF
 from fpdf.enums import XPos, YPos
 from groq import Groq
 
-from agents.translator import append_urdu_translation
+from agents.translator import (
+    append_urdu_translation,
+    is_translation_only_request,
+    remove_existing_urdu_translation,
+    translate_to_urdu,
+)
 from config import APP_NAME, APP_SUBTITLE, DISCLAIMER, LEGAL_DOMAINS
 from memory.memory import init_session
 from rag.prompts import SYSTEM_PROMPT, build_answer_prompt
@@ -643,6 +648,20 @@ def reset_document_checks() -> None:
 
 
 def handle_prompt(prompt: str) -> None:
+    if is_translation_only_request(prompt) and st.session_state.get("last_answer"):
+        st.session_state.current_query = prompt
+        try:
+            source_answer = remove_existing_urdu_translation(st.session_state.last_answer)
+            st.session_state.last_answer = f"**Urdu Translation:**\n{translate_to_urdu(source_answer)}"
+            st.session_state.llm_status = "Translated previous answer"
+        except Exception as exc:
+            st.session_state.last_answer = (
+                "I could not translate the previous answer right now. "
+                f"Translation failed with {exc.__class__.__name__}."
+            )
+            st.session_state.llm_status = f"Translation failed: {exc.__class__.__name__}"
+        return
+
     reset_document_checks()
     domain, subcategory, case_title = classify_query(prompt)
     procedure = get_procedure(domain, subcategory)
