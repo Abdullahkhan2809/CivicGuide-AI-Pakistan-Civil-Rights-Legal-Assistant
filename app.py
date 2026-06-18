@@ -61,9 +61,34 @@ def inject_css() -> None:
         .mini-logo {
             width: 24px;
             height: 24px;
-            border-radius: 7px;
-            background: #4f8df7;
-            display: inline-block;
+            border-radius: 8px;
+            background:
+                linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0) 42%),
+                linear-gradient(135deg, #4f8df7 0%, #11b7a4 100%);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 8px 22px rgba(79, 141, 247, 0.28);
+            overflow: hidden;
+        }
+        .mini-logo::before {
+            content: "CG";
+            color: #ffffff;
+            font-size: 0.56rem;
+            font-weight: 900;
+            letter-spacing: 0;
+            line-height: 1;
+        }
+        .mini-logo::after {
+            content: "";
+            position: absolute;
+            left: 6px;
+            right: 6px;
+            bottom: 5px;
+            height: 2px;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, 0.82);
         }
         .top-actions {
             display: flex;
@@ -193,11 +218,37 @@ def inject_css() -> None:
             margin-bottom: 0.25rem;
         }
         .logo {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            background: #4f8df7;
-            display: inline-block;
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            background:
+                linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0) 42%),
+                linear-gradient(135deg, #4f8df7 0%, #11b7a4 100%);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 64px;
+            position: relative;
+            box-shadow: 0 18px 44px rgba(79, 141, 247, 0.3);
+            overflow: hidden;
+        }
+        .logo::before {
+            content: "CG";
+            color: #ffffff;
+            font-size: 1.15rem;
+            font-weight: 900;
+            letter-spacing: 0;
+            line-height: 1;
+        }
+        .logo::after {
+            content: "";
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 14px;
+            height: 4px;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, 0.82);
         }
         .subtitle { color: #8b94ad; font-weight: 600; }
         .status {
@@ -741,10 +792,10 @@ def main() -> None:
     if st.session_state.current_query:
         with st.chat_message("user"):
             st.write(st.session_state.current_query)
-        with st.chat_message("assistant"):
+        with st.chat_message("assistant", avatar="CG"):
             st.write(st.session_state.last_answer)
     else:
-        with st.chat_message("assistant"):
+        with st.chat_message("assistant", avatar="CG"):
             st.write("Tell me your issue, for example: `khulla procedure`, `landlord not returning deposit`, or `company registration`.")
     render_suggestion_buttons()
     st.markdown("</div>", unsafe_allow_html=True)
