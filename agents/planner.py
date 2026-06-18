@@ -18,7 +18,7 @@ def _groq_answer(case_text: str, question: str, chunks: list[RetrievedChunk]) ->
     client = Groq(api_key=api_key)
     response = client.chat.completions.create(
         model=os.getenv("GROQ_MODEL", "llama-3.1-8b-instant"),
-        temperature=0.2,
+        temperature=0.7,
         max_tokens=700,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
